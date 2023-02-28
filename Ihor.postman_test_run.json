@@ -1,0 +1,89 @@
+{
+	"id": "0e61468c-088d-48fa-820f-7cabccf101b1",
+	"name": "Swappi for Ihor",
+	"timestamp": "2023-02-28T09:17:45.357Z",
+	"collection_id": "25064894-dbb074fd-1fbd-4fa8-8108-cd2111bb58e0",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 7,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-02-28T09:17:44.713Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "c77d0c5d-2892-4893-8428-f8c2a2c2767d",
+			"name": "swapi.dev/api/",
+			"url": "https://swapi.dev/api/",
+			"time": 199,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				" Test json": true,
+				"Test body": true,
+				"Status 200 ": true,
+				"Status OK": true,
+				"Test time 500": true,
+				"response must be valid and have a body": true,
+				"Test Headers": true
+			},
+			"testPassFailCounts": {
+				" Test json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status 200 ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test time 500": {
+					"pass": 1,
+					"fail": 0
+				},
+				"response must be valid and have a body": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test Headers": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				199
+			],
+			"allTests": [
+				{
+					" Test json": true,
+					"Test body": true,
+					"Status 200 ": true,
+					"Status OK": true,
+					"Test time 500": true,
+					"response must be valid and have a body": true,
+					"Test Headers": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 199,
+	"collection": {
+		"requests": [
+			{
+				"id": "c77d0c5d-2892-4893-8428-f8c2a2c2767d",
+				"method": "GET"
+			}
+		]
+	}
+}
