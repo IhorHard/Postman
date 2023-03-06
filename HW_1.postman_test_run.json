@@ -1,0 +1,198 @@
+{
+	"id": "4efe6582-0285-4264-86aa-ad639f1c6914",
+	"name": "Postman. HW_1",
+	"timestamp": "2023-03-06T08:41:11.736Z",
+	"collection_id": "25064894-a1f6085b-c528-4f33-8d65-bfc004854231",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-03-06T08:41:09.912Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "75cc4948-51c5-4f45-ab2b-aad2813fe961",
+			"name": "New Request",
+			"url": "http://162.55.220.72:5005",
+			"time": 97,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				97
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "dc1ff435-1d7a-498a-b26b-24a68830b66a",
+			"name": "New Request 2",
+			"url": "http://162.55.220.72:5005/get_method",
+			"time": 78,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				78
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6612e905-bab1-44d8-83b4-2bb53dde6606",
+			"name": "New Request 3 user_info_3",
+			"url": "http://162.55.220.72:5005//user_info_3",
+			"time": 88,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				88
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f931acbc-d7c4-4bf2-bfc6-da0165f199cb",
+			"name": "New Request 3 /object_info_1",
+			"url": "http://162.55.220.72:5005/object_info_1?name=IhorHardcorenko&age=28&weight=80",
+			"time": 84,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				84
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "63778dfd-0918-436b-9403-3f8bccc8343a",
+			"name": "New Request 3 /object_info_2",
+			"url": "http://162.55.220.72:5005/object_info_2?name=IhorHardcorenko&age=28&salary=1337",
+			"time": 81,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				81
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f6b433d1-4312-47c9-9538-5239a9b41cda",
+			"name": "New Request 3 /object_info_3",
+			"url": "http://162.55.220.72:5005/object_info_3?name=IhorHardcorenko&age=28&salary=1337",
+			"time": 93,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				93
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0a14e5e1-14df-40b6-91aa-8cb3cb2e9c7c",
+			"name": "New Request 3 /object_info_4",
+			"url": "http://162.55.220.72:5005/object_info_4?name=IhorHardcorenko&age=28&salary=1337",
+			"time": 71,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				71
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "da9b6578-8891-4ede-8159-eef17eeee998",
+			"name": "New Request 3 /user_info_2",
+			"url": "http://162.55.220.72:5005/user_info_2?name=IhorHardcorenko&age=28&salary=1337",
+			"time": 78,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				78
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 670,
+	"collection": {
+		"requests": [
+			{
+				"id": "75cc4948-51c5-4f45-ab2b-aad2813fe961",
+				"method": "GET"
+			},
+			{
+				"id": "dc1ff435-1d7a-498a-b26b-24a68830b66a",
+				"method": "GET"
+			},
+			{
+				"id": "6612e905-bab1-44d8-83b4-2bb53dde6606",
+				"method": "POST"
+			},
+			{
+				"id": "f931acbc-d7c4-4bf2-bfc6-da0165f199cb",
+				"method": "GET"
+			},
+			{
+				"id": "63778dfd-0918-436b-9403-3f8bccc8343a",
+				"method": "GET"
+			},
+			{
+				"id": "f6b433d1-4312-47c9-9538-5239a9b41cda",
+				"method": "GET"
+			},
+			{
+				"id": "0a14e5e1-14df-40b6-91aa-8cb3cb2e9c7c",
+				"method": "GET"
+			},
+			{
+				"id": "da9b6578-8891-4ede-8159-eef17eeee998",
+				"method": "POST"
+			}
+		]
+	}
+}
