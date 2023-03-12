@@ -1,0 +1,464 @@
+{
+	"info": {
+		"_postman_id": "de3eed8f-b37a-4906-bb23-7c2ed61a969d",
+		"name": "Postman.HW_2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25064894"
+	},
+	"item": [
+		{
+			"name": "First Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var myData = pm.response.text();",
+							"pm.test(\"Body correct\", function () {",
+							"    pm.response.to.have.body(\"This is the first responce from server!ss\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/first",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"first"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request 2/user_info_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							"let req_wex = request.data",
+							"let resp_wex = pm.response.json();",
+							"",
+							"let req_age = +req_wex.age",
+							"let resp_age = +resp_wex.age",
+							"",
+							"let req_salary = +req_wex.salary",
+							"let resp_salary_1_5_years = resp_wex.family.u_salary_1_5_year",
+							"let children_2_name = resp_wex.family.children[1][0]",
+							"",
+							"",
+							"",
+							"console.log(req_wex)",
+							"console.log(\"req_age = \" + req_age)",
+							"console.log(\"resp_age = \" + resp_wex.age)",
+							"console.log(resp_wex.family.children)",
+							"",
+							"",
+							"pm.test(\"Test Age\", function () {  ",
+							"    pm.expect(req_age).to.eql(resp_age);",
+							"});",
+							"",
+							"pm.test(\"Test Salary_1_5_years\", function () {  ",
+							"    pm.expect(req_salary*4).to.eql(resp_salary_1_5_years);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Name children 2 \", function () {  ",
+							"    pm.expect(children_2_name).to.eql(\"Kate\");",
+							"});",
+							"",
+							"pm.test(\"Test Name\", function () {  ",
+							"    pm.expect(resp_wex.name).to.be.a(\"string\");",
+							"});",
+							"",
+							"pm.test(\"Test salary\", function () {  ",
+							"    pm.expect(resp_wex.salary).to.be.a(\"number\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Priority family\", function () {  ",
+							"    pm.expect(resp_wex).to.have.property(\"family\");",
+							"});",
+							"",
+							"pm.test(\"All priority\", function () {  ",
+							"    pm.expect(resp_wex).to.have.all.keys(\"age\", \"family\", \"name\", \"salary\");",
+							"});",
+							"",
+							"pm.test(\"Inter priority\", function () {  ",
+							"    pm.expect(resp_wex.family).to.have.all.keys( \"children\", \"u_salary_1_5_year\");",
+							"});",
+							"",
+							"pm.test(\"All priority\", function () {  ",
+							"    pm.expect(resp_wex).to.have.any.keys(\"age\", \"family\", \"Tonny\", \"salary\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/user_info_3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user_info_3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request 3/object_info_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"let resp_wex = pm.response.json();",
+							"console.log(resp_wex)",
+							"let req_wex = pm.request.toJSON();",
+							"console.log(req_wex)",
+							"",
+							"let req_name = pm.request.url.query.one(\"name\")",
+							"console.log(req_name)",
+							"pm.test(\"Имя\", function () {",
+							"    pm.expect(req_name.value).to.eql(resp_wex.name);",
+							"});",
+							"",
+							"let req_age = pm.request.url.query.one(\"age\")",
+							"console.log(req_age)",
+							"pm.test(\"Age\", function () {",
+							"    pm.expect(+req_age.value).to.eql(+resp_wex.age);",
+							"});",
+							"",
+							"let req_salary = pm.request.url.query.one(\"salary\")",
+							"console.log(req_salary)",
+							"pm.test(\"Salary \", function () {",
+							"    pm.expect(+req_salary.value).to.eql(resp_wex.salary);",
+							"});",
+							"",
+							"console.log(resp_wex.family)",
+							"",
+							"pm.test(\"Name\", function () {",
+							"    pm.expect(resp_wex.family.pets.dog).to.have.property(\"name\");",
+							"});",
+							"",
+							"pm.test(\"Age\", function () {",
+							"    pm.expect(resp_wex.family.pets.dog).to.have.property(\"age\");",
+							"});",
+							"",
+							"pm.test(\"Luky\", function () {",
+							"    pm.expect(resp_wex.family.pets.dog.name).to.eql(\"Luky\");",
+							"});",
+							"",
+							"pm.test(\"4 years Luky\", function () {",
+							"    pm.expect(+resp_wex.family.pets.dog.age).to.eql(4);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/object_info_3?name={{name}}&age={{name}}&salary={{salary}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"object_info_3"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{name}}"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request 4/object_info_4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"let resp_wex = pm.response.json();",
+							"console.log(resp_wex)",
+							"let req_wex = pm.request.toJSON();",
+							"console.log(req_wex)",
+							"",
+							"let req_name = pm.request.url.query.one(\"name\")",
+							"console.log(req_name)",
+							"pm.test(\"Check Name\", function () {",
+							"    pm.expect(req_name.value).to.eql(resp_wex.name);",
+							"});",
+							"",
+							"let req_age = pm.request.url.query.one(\"age\")",
+							"console.log(req_age)",
+							"pm.test(\"Check age\", function () {",
+							"    pm.expect(+req_age.value).to.eql(+resp_wex.age);",
+							"});",
+							"",
+							"console.log(pm.request.url.query.one(\"salary\").value)",
+							"console.log(resp_wex.salary)",
+							"",
+							"console.log(+resp_wex.salary[0])",
+							"console.log(+resp_wex.salary[1])",
+							"console.log(+resp_wex.salary[2])",
+							"",
+							"",
+							"pm.test(\"Check Salary\", function () {",
+							"    pm.expect(+pm.request.url.query.one(\"salary\").value).to.eql+(resp_wex.salary[0]);",
+							"});",
+							"",
+							"pm.test(\"Check Salary 2\", function () {",
+							"    pm.expect(+pm.request.url.query.one(\"salary\").value*2).to.eql+(resp_wex.salary[1]);",
+							"});",
+							"",
+							"pm.test(\"Check Salary 3\", function () {",
+							"    pm.expect(+pm.request.url.query.one(\"salary\").value*3).to.eql+(resp_wex.salary[2]);",
+							"});",
+							"",
+							"",
+							"",
+							"   ",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/object_info_3?name={{name}}&age={{age}}&salary={{salary}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"object_info_3"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request 5/user_info_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check status 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"let resp_wex = pm.response.json();",
+							"console.log(resp_wex)",
+							"let req_wex = pm.request.toJSON();",
+							"console.log(req_wex)",
+							"",
+							"",
+							"pm.test(\"Start salary\", function () {",
+							"    pm.expect(resp_wex).to.have.property(\"start_qa_salary\");",
+							"});",
+							"pm.test(\"Salary_after_6_months\", function () {",
+							"    pm.expect(resp_wex).to.have.property(\"qa_salary_after_6_months\");",
+							"});",
+							"pm.test(\"Salary_after_3.5_years\", function () {",
+							"    pm.expect(resp_wex).to.have.property(\"qa_salary_after_3.5_years\");",
+							"});",
+							"pm.test(\"Salary_after_12_months\", function () {",
+							"    pm.expect(resp_wex).to.have.property(\"qa_salary_after_12_months\");",
+							"});",
+							"",
+							"pm.test(\"Salary_after_1.5_year\", function () {",
+							"    pm.expect(resp_wex).to.have.property(\"qa_salary_after_1.5_year\");",
+							"});",
+							"",
+							"pm.test(\"Person\", function () {",
+							"    pm.expect(resp_wex).to.have.property(\"person\");",
+							"});",
+							"",
+							"pm.test(\"Start_qa_salary\", function () {",
+							"    pm.expect(+pm.request.body.formdata.one(\"salary\").value).to.eql(+resp_wex.start_qa_salary);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Salary_after_6_months\", function () {",
+							"    pm.expect(+pm.request.body.formdata.one(\"salary\").value*2).to.eql(+resp_wex.qa_salary_after_6_months);",
+							"});",
+							"",
+							"pm.test(\"Salary_after_12_months\", function () {",
+							"    pm.expect(+pm.request.body.formdata.one(\"salary\").value*2.7).to.eql(+resp_wex.qa_salary_after_12_months);",
+							"});",
+							"",
+							"pm.test(\"Salary_after_1.5_year\", function () {",
+							"    pm.expect(+pm.request.body.formdata.one(\"salary\").value*3.3).to.eql(+resp_wex['qa_salary_after_1.5_year']);",
+							"});",
+							"",
+							"pm.test(\"Salary_after_3.5_years\", function () {",
+							"    pm.expect(+pm.request.body.formdata.one(\"salary\").value*3.8).to.eql(+resp_wex['qa_salary_after_3.5_years']);",
+							"});",
+							"",
+							"pm.test(\"Name\", function () {",
+							"    pm.expect(+resp_wex.person.u_name[0]).to.eql(+pm.request.body.formdata.one(\"salary\").key                                         );",
+							"});",
+							"",
+							"pm.test(\"Age\", function () {",
+							"    pm.expect(+resp_wex.person.u_age).to.eql(+pm.request.body.formdata.one(\"age\").value);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Salary_5_years\", function () {",
+							"    pm.expect(+resp_wex.person.salry*4.2).to.eql(+req_wex.u_salary_5_years);",
+							"});",
+							"",
+							"",
+							"for (key in resp_wex.person) {",
+							"    console.log(key, resp_wex.person[key]);",
+							"};",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/user_info_2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"user_info_2"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "IhorHarcorenko",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "28",
+							"disabled": true
+						},
+						{
+							"key": "salary",
+							"value": "1337",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
