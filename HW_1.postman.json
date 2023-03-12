@@ -100,17 +100,17 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "IhorHardcorenko",
+							"value": "{{name}}",
 							"type": "text"
 						},
 						{
 							"key": "age",
-							"value": "28",
+							"value": "{{age}}",
 							"type": "text"
 						},
 						{
 							"key": "salary",
-							"value": "1337",
+							"value": "{{salary}}",
 							"type": "text"
 						}
 					]
